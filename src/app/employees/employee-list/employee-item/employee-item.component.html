@@ -1,0 +1,18 @@
+<a [routerLink]="[index]" routerLinkActive="active" class="employee-item"
+  ><div class="card" style="width: 18rem">
+    <div class="card-body">
+      <div class="pull-left">
+        <h4 class="">{{ employee?.name }}</h4>
+        <p class="">{{ employee?.description }}</p>
+      </div>
+      <span class="pull-right">
+        <img
+          [src]="employee?.imagePath"
+          alt="{{ employee?.name }}"
+          class="img-responsive"
+          style="max-height: 50px"
+        />
+      </span>
+    </div>
+  </div>
+</a>

@@ -1,1 +1,130 @@
-<p>employee-edit works!</p>
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="employeeForm!" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-success me-3"
+            [disabled]="employeeForm?.invalid"
+          >
+            Save
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="onCancelEditEmployee()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <br />
+      <div class="row my-2">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              [formControlName]="'name'"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="imagePath">ImagePath</label>
+            <input
+              type="text"
+              id="imagePath"
+              class="form-control"
+              [formControlName]="'imagePath'"
+              #imagePath
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12">
+          <img [src]="imagePath.value" class="img-responsive" width="300"/>
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              [formControlName]="'description'"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12" [formArrayName]="'experience'">
+          <div
+            class="row my-3"
+            *ngFor="
+              let control of employeeExperienceList.controls;
+              let i = index
+            "
+            [formGroupName]="i"
+          >
+            <div class="col-4">
+              <label for="ingredient">Skill</label>
+              <input
+                type="text"
+                id="ingredient"
+                class="form-control"
+                [formControlName]="'skill'"
+              />
+            </div>
+
+            <div class="col-6">
+              <label for="amount">Years of Experience</label>
+              <input
+                type="text"
+                id="amount"
+                class="form-control"
+                [formControlName]="'yearsOfExperience'"
+              />
+            </div>
+
+            <div class="col-2">
+              <button
+                class="btn btn-danger mt-3"
+                id="cancelButton"
+                (click)="onCancelExperience(i)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div class="row">
+        <div class="col-12">
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="onAddExperience()"
+          >
+            Add Experience
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

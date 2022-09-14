@@ -1,1 +1,112 @@
-<p>employee-details works!</p>
+<div class="row">
+  <div class="col-12">
+    <img
+      [src]="employee?.imagePath"
+      alt="{{ employee?.name }}"
+      class="img-responsive emp-details-img"
+      style="max-height: 300px"
+    />
+  </div>
+</div>
+<div class="row my-3">
+  <div class="col-12">
+    <h1>{{ employee?.name }}</h1>
+  </div>
+</div>
+<div class="row my-3">
+  <div class="col-12">
+    <strong
+      ><em>{{ employee?.description }}</em></strong
+    >
+  </div>
+</div>
+<div class="row my-3">
+  <div class="col-12">
+    <!-- <div class="btn-group" appDropdown>
+      <div class="dropdown">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Manage Employee <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu">
+          <a
+            class="dropdown-item"
+            (click)="onAddToShoppingList()"
+            style="cursor: pointer"
+            >To Shopping List</a
+          >
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onEditEmployee()"
+            >Edit employee</a
+          >
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onDeleteEmployee()"
+            >Delete employee</a
+          >
+        </div>
+      </div>
+    </div> -->
+
+    <div class="btn-group" dropdown>
+      <button
+        id="button-basic"
+        dropdownToggle
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        aria-controls="dropdown-basic"
+      >
+        Manage Employee <span class="caret"></span>
+      </button>
+      <ul
+        id="dropdown-basic"
+        *dropdownMenu
+        class="dropdown-menu"
+        role="menu"
+        aria-labelledby="button-basic"
+      >
+        <li role="menuitem">
+          <a
+            class="dropdown-item"
+            (click)="onAddToShoppingList()"
+            style="cursor: pointer"
+            >To Shopping List</a
+          >
+        </li>
+        <li role="menuitem">
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onEditEmployee()"
+            >Edit employee</a
+          >
+        </li>
+        <li role="menuitem">
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onDeleteEmployee()"
+            >Delete employee</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="row my-3">
+      <div class="col-12">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let e of employee?.experience">
+            {{ e.skill }} - {{ e.yearsOfExperience }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,6 @@
-<p>employee-list works!</p>
+
+<div class="row">
+  <div class="col-12 my-1" *ngFor="let e of employees; let i = index">
+    <app-employee-item [employee]="e" [index]="i"></app-employee-item>
+  </div>
+</div>

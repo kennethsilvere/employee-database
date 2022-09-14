@@ -1,0 +1,13 @@
+.employee-item {
+  max-width: 20vw;
+  min-height: 100px;
+  margin-bottom: 30px;
+
+  text-decoration: none;
+}
+
+
+img {
+  width: 50px;
+  border-radius: 90%;
+}

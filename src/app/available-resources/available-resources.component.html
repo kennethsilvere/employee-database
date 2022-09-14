@@ -1,1 +1,12 @@
-<p>available-resources works!</p>
+<div class="row">
+  <div class="col-10">
+    <app-resource-edit></app-resource-edit>
+    <hr>
+    <ul class="list-group">
+      <a class="list-group-item" style="cursor: pointer" *ngFor="let e of experience; let i = index"
+        (click)="onEditItem(i)">
+        {{ e.skill }} ({{ e.yearsOfExperience }} years of experience)
+      </a>
+    </ul>
+  </div>
+</div>
